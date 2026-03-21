@@ -5,26 +5,26 @@ import requests
 from .data import URL
 
 
-@allure.title('Генератор рандомной строки')
+@allure.step('Генератор рандомной строки')
 def generate_random_string(length):
         letters = string.ascii_lowercase
         random_string = ''.join(random.choice(letters) for i in range(length))
         return random_string
 
 
-@allure.title('Генератор рандомного email @yandex.ru')
+@allure.step('Генератор рандомного email @yandex.ru')
 def generate_random_email(length):
         random_email = f"{generate_random_string(length)}@{"yandex.ru"}"        
         return random_email
 
 
-@allure.title('Удаление пользователя')
+@allure.step('Удаление пользователя')
 def delete_user(accessToken):
         response_del = requests.delete(f"{URL.url_stellarburgers}{URL.api_user}", headers={'Authorization': accessToken})
         return response_del
 
 
-@allure.title('Создание пользователя и возврат данных авторизации')
+@allure.step('Создание пользователя и возврат данных авторизации')
 def new_user():
     login_pass = []
     email = generate_random_email(10)
@@ -40,3 +40,5 @@ def new_user():
         login_pass.append(response.json())
         login_pass.append(password)
     return login_pass    
+
+
