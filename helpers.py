@@ -42,3 +42,20 @@ def new_user():
     return login_pass    
 
 
+@allure.step('Создание заказа')
+def create_order(accessToken):        
+        ingredient_id = get_ingredient_id(1)
+        payload = {
+            "ingredients": ingredient_id
+        }
+        requests.post(f"{URL.url_stellarburgers}{URL.api_orders}",
+                                 headers={'Authorization': accessToken},
+                                 data=payload)
+        
+
+@allure.step('Получение id ингредиента')
+def get_ingredient_id(ingredient_number):
+        response_ingredients = requests.get(f"{URL.url_stellarburgers}{URL.api_ingredients}")
+        response_ingredients_text = response_ingredients.json()
+        ingredient_id = response_ingredients_text["data"][ingredient_number]["_id"]
+        return ingredient_id

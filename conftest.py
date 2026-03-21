@@ -36,12 +36,5 @@ def new_user_with_post_delete():
     yield login_pass    
     delete_user(login_pass[0]["accessToken"])
 
-# @pytest.fixture()
-# def driver():
-#     driver = webdriver.Chrome()
-#     driver.maximize_window()
-#     driver.get(URL.url_stellarburgers)
-#     yield driver
-#     driver.quit()
 
 

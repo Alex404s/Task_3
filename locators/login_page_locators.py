@@ -12,3 +12,6 @@ class LoginPageLocators:
     hide_show_password_button = [By.XPATH, '//div[@class="input__icon input__icon-action"]']
     active_password_field = [By.XPATH, '//div[@class= "input pr-6 pl-6 input_type_text input_size_default input_status_active"]']
     
+
+class LoginPageSelectors:
+    active_password_field = "input pr-6 pl-6 input_type_text input_size_default input_status_active"

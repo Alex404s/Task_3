@@ -85,8 +85,10 @@ class LoginPage(BasePage):
     @allure.step('Авторизация пользователя')
     def login_user(self, email, password):
         self.wait_for_clickable_personal_acc_button()
+        self.wait_for_invisibility_field()
         self.personal_acc_button_click()
         self.wait_for_clickable_restore_password_button()
+        self.wait_for_invisibility_field()
         self.send_keys_to_login_email_field(email)
         self.send_keys_to_login_password_field(password)
         self.login_button_click()   
@@ -96,6 +98,7 @@ class LoginPage(BasePage):
     def scenario_go_to_restore_password(self):        
         self.personal_acc_button_click()
         self.wait_for_clickable_restore_password_button()
+        self.wait_for_invisibility_field()
         self.restore_password_button_click()
         self.wait_for_clickable_restore_password_email_field()
         
@@ -106,6 +109,7 @@ class LoginPage(BasePage):
         self.send_keys_to_restore_password_email_field(email)
         self.click_restore_password_accept_button()
         self.wait_for_clickable_hide_show_password_button()
+        self.wait_for_invisibility_field()
 
 
     @allure.step('Сценарий "Клик по кнопке показать/скрыть пароль делает поле активным — подсвечивает его"')
@@ -113,6 +117,7 @@ class LoginPage(BasePage):
         self.scenario_insert_email_and_go_to_next_menu(email)
         self.click_hide_show_password_button()
         self.wait_for_load_active_password_field()
+        self.wait_for_invisibility_field()
 
 
 

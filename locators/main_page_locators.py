@@ -10,4 +10,4 @@ class MainPageLocators:
     constructor_basket_area = [By.XPATH, '//ul[@class="BurgerConstructor_basket__list__l9dp_"]']
     sauce_spicy_x_counter = [By.XPATH, '//a[@href="/ingredient/61c0c5a71d1f82001bdaaa72"]//p[@class="counter_counter__num__3nue1"]']
     register_order_button = [By.XPATH, '//button[text()= "Оформить заказ"]']
-    field = [By.XPATH, '//div[@class="Modal_modal_overlay__x2ZCr"]']
+    

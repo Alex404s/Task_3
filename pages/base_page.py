@@ -3,7 +3,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from ..locators.base_page_locators import BasePageLocators
 from selenium.webdriver import ActionChains
 import allure
-
+from seletools.actions import drag_and_drop
 
 
 class BasePage:
@@ -76,11 +76,10 @@ class BasePage:
 
 
     @allure.step('Перенос элемента')
-    def drag_and_drop(self, element_locator, target_element_locator):
+    def drag_and_drop_element(self, element_locator, target_element_locator):
         element = self.driver.find_element(*element_locator)
-        target_element = self.driver.find_element(*target_element_locator)
-        actions = ActionChains(self.driver)
-        actions.drag_and_drop(element, target_element).perform()        
+        target_element = self.driver.find_element(*target_element_locator)       
+        drag_and_drop(self.driver, element, target_element)
 
        
     @allure.step('Ожидание кликабельности кнопки "Личный кабинет"')
@@ -111,6 +110,11 @@ class BasePage:
     @allure.step('Нажатие на кнопку "Лента заказов"')
     def order_feed_button_click(self):
         self.click_button(BasePageLocators.order_feed_button)
+
+
+    @allure.step('Ожидание пропажи невидимого поля')
+    def wait_for_invisibility_field(self):
+        self.wait_for_visibility_element(BasePageLocators.field)
 
 
 

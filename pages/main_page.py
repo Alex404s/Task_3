@@ -9,11 +9,6 @@ class MainPage(BasePage):
         self.wait_for_clickable_element(MainPageLocators.main_login_button)
 
 
-    @allure.step('Ожидание пропажи невидимого поля')
-    def wait_for_invisibility_field(self):
-        self.wait_for_visibility_element(MainPageLocators.field)
-
-
     @allure.step('Ожидание кликабельности кнопки "Оформить заказ"')
     def wait_for_clickable_register_order_button(self):
         self.wait_for_clickable_element(MainPageLocators.register_order_button)
@@ -73,7 +68,7 @@ class MainPage(BasePage):
 
     @allure.step('Добавление ингредиента "Соус Spicy-X" в заказ')
     def add_to_order_sauce_spicy_x_img(self):
-        self.drag_and_drop(MainPageLocators.sauce_spicy_x_img, MainPageLocators.constructor_basket_area)
+        self.drag_and_drop_element(MainPageLocators.sauce_spicy_x_img, MainPageLocators.constructor_basket_area)
 
     
     @allure.step('Получение каунтера ингредиента "Соус Spicy-X"')
@@ -88,7 +83,7 @@ class MainPage(BasePage):
         return text
 
 
-    @allure.step('Сценарий "переход по клику на «Конструктор»"')
+    @allure.step('Переход по клику на «Конструктор»"')
     def scenario_go_to_constructor(self):
         self.wait_for_clickable_main_login_button()
         self.wait_for_invisibility_field()
@@ -97,14 +92,14 @@ class MainPage(BasePage):
         self.wait_for_load_constructor_title()
 
     
-    @allure.step('Сценарий "переход по клику на «Лента заказов»"')
+    @allure.step('Переход по клику на «Лента заказов»"')
     def scenario_go_to_order_feed(self):
         self.wait_for_clickable_main_login_button()
         self.wait_for_invisibility_field()        
         self.order_feed_button_click()
 
 
-    @allure.step('Сценарий "если кликнуть на ингредиент, появится всплывающее окно с деталями"')
+    @allure.step('Переход к всплывающему окну с деталями"')
     def scenario_ingredient_details(self):
         self.wait_for_clickable_main_login_button()
         self.wait_for_invisibility_field()
@@ -113,7 +108,7 @@ class MainPage(BasePage):
         self.click_sauce_spicy_x_img()
 
     
-    @allure.step('Сценарий "при добавлении ингредиента в заказ, увеличивается каунтер данного ингредиента"')
+    @allure.step('Добавление ингредиента в заказ')
     def scenario_add_to_order(self):
         self.wait_for_clickable_main_login_button()
         self.wait_for_invisibility_field()

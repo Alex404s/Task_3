@@ -32,7 +32,12 @@ class PersonalAccPage(BasePage):
         self.click_button(PersonalAccPageLocators.exit_button)
 
 
-    @allure.step('Получения номера заказа')
+    @allure.step('Ожидание отображения истории заказов')
+    def wait_for_load_story_order(self):
+        self.wait_for_load_element(PersonalAccPageLocators.order_story_number)
+        
+
+    @allure.step('Получения номера созданного заказа у пользователя')
     def get_order_num(self):
         text = self.get_text_element(PersonalAccPageLocators.order_story_number)
         return text
@@ -47,9 +52,11 @@ class PersonalAccPage(BasePage):
     @allure.step('Сценарий "Переход в раздел «История заказов»"')
     def scenario_go_to_order_story(self):
         self.wait_for_clickable_personal_acc_button()
-        self.personal_acc_button_click()
+        self.wait_for_invisibility_field()        
+        self.personal_acc_button_click()        
         self.wait_for_clickable_order_story_button()
-        self.order_story_button_click()
+        self.wait_for_invisibility_field()
+        self.order_story_button_click()        
 
 
     @allure.step('Сценарий "Выход из аккаунта"')
