@@ -11,3 +11,10 @@ class MainPageLocators:
     sauce_spicy_x_counter = [By.XPATH, '//a[@href="/ingredient/61c0c5a71d1f82001bdaaa72"]//p[@class="counter_counter__num__3nue1"]']
     register_order_button = [By.XPATH, '//button[text()= "Оформить заказ"]']
     
+
+
+class MainPageSelectors:
+    register_order_button_text = 'Оформить заказ'
+    sauce_spicy_x_counter_text = '1'
+    ingredient_details_title_text = "Детали ингредиента"
+    constructor_title_text = "Соберите бургер"

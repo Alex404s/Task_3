@@ -15,3 +15,6 @@ class LoginPageLocators:
 
 class LoginPageSelectors:
     active_password_field = "input pr-6 pl-6 input_type_text input_size_default input_status_active"
+    restore_password_title_text = "Восстановление пароля"
+    restore_password_button_text = 'Восстановить пароль'
+    text_code_from_letter = "Введите код из письма"

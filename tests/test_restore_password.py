@@ -13,7 +13,7 @@ class TestRestorePassword:
         restore_pass = LoginPage(driver)
         restore_pass.scenario_go_to_restore_password()
                
-        assert restore_pass.get_text_restore_password_title() == "Восстановление пароля"
+        assert restore_pass.get_text_restore_password_title() == LoginPageSelectors.restore_password_title_text
 
 
     @allure.title('Проверка сценария "Ввод почты и клик по кнопке «Восстановить»"')
@@ -23,7 +23,7 @@ class TestRestorePassword:
         restore_pass = LoginPage(driver)
         restore_pass.scenario_insert_email_and_go_to_next_menu(new_user_with_post_delete[0]["user"]["email"])
                
-        assert restore_pass.get_text_help_text_code_from_letter() == "Введите код из письма"
+        assert restore_pass.get_text_help_text_code_from_letter() == LoginPageSelectors.text_code_from_letter
 
     
     @allure.title('Проверка сценария "Клик по кнопке показать/скрыть пароль делает поле активным — подсвечивает его"')

@@ -2,6 +2,7 @@ from ..pages.personal_acc_page import PersonalAccPage
 from ..pages.login_page import LoginPage
 from ..pages.main_page import MainPage
 from ..locators.personal_acc_page_locators import PersonalAccSelectors
+from ..locators.login_page_locators import LoginPageSelectors
 import allure
 
 
@@ -16,7 +17,7 @@ class TestPersonalAcc:
         personal_acc = PersonalAccPage(driver)
         personal_acc.scenario_go_to_personal_acc()        
 
-        assert personal_acc.get_text_order_story_button() == "История заказов"
+        assert personal_acc.get_text_order_story_button() == PersonalAccSelectors.order_story_button_text
 
     
     @allure.title('Проверка сценария "Переход в раздел «История заказов»"')
@@ -45,4 +46,4 @@ class TestPersonalAcc:
         login.wait_for_clickable_restore_password_button()
         login.wait_for_invisibility_field()                
 
-        assert login.get_text_restore_password_button() == 'Восстановить пароль'
+        assert login.get_text_restore_password_button() == LoginPageSelectors.restore_password_button_text

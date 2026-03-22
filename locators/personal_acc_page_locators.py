@@ -8,3 +8,4 @@ class PersonalAccPageLocators:
 
 class PersonalAccSelectors:
     active_order_story_button = 'Account_link__2ETsJ text text_type_main-medium text_color_inactive Account_link_active__2opc9'
+    order_story_button_text = "История заказов"

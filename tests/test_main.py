@@ -1,6 +1,9 @@
 from ..pages.login_page import LoginPage
 from ..pages.main_page import MainPage
 from ..pages.order_feed_page import OrderFeed
+from ..locators.login_page_locators import LoginPageSelectors
+from ..locators.main_page_locators import MainPageSelectors
+from ..locators.order_feed_locators import OrderFeedSelectors
 import allure
 
 
@@ -11,7 +14,7 @@ class TestMainPage:
         main_page = MainPage(driver)
         main_page.scenario_go_to_constructor()        
 
-        assert main_page.get_text_constructor_title() == "Соберите бургер"
+        assert main_page.get_text_constructor_title() == MainPageSelectors.constructor_title_text
 
 
     @allure.title('Проверка сценария "переход по клику на «Лента заказов»"')
@@ -21,7 +24,7 @@ class TestMainPage:
         order_feed = OrderFeed(driver)        
         order_feed.wait_for_load_order_feed_field()         
 
-        assert order_feed.get_text_all_time_counter_title() == "Выполнено за все время:"
+        assert order_feed.get_text_all_time_counter_title() == OrderFeedSelectors.all_time_counter_title_text
 
 
     @allure.title('Проверка сценария "если кликнуть на ингредиент, появится всплывающее окно с деталями"')
@@ -29,7 +32,7 @@ class TestMainPage:
         main_page = MainPage(driver)
         main_page.scenario_ingredient_details()         
 
-        assert main_page.get_text_ingredient_details_title() == "Детали ингредиента"
+        assert main_page.get_text_ingredient_details_title() == MainPageSelectors.ingredient_details_title_text
 
 
     @allure.title('Проверка закрытия всплывающего окна с деталями')
@@ -42,7 +45,7 @@ class TestMainPage:
         login_page = LoginPage(driver)
         login_page.wait_for_clickable_restore_password_button()        
 
-        assert login_page.get_text_restore_password_button() == "Восстановить пароль"    
+        assert login_page.get_text_restore_password_button() == LoginPageSelectors.restore_password_button_text    
 
 
     @allure.title('Проверка сценария "при добавлении ингредиента в заказ, увеличивается каунтер данного ингредиента"')
@@ -51,7 +54,7 @@ class TestMainPage:
         main_page.wait_for_invisibility_field()
         main_page.scenario_add_to_order()         
 
-        assert main_page.get_text_sauce_spicy_x_counter() == '1'
+        assert main_page.get_text_sauce_spicy_x_counter() == MainPageSelectors.sauce_spicy_x_counter_text
 
 
     @allure.title('Провекра, что залогиненный пользователь может оформить заказ')
@@ -62,7 +65,7 @@ class TestMainPage:
         main_page.wait_for_invisibility_field()
         main_page.wait_for_clickable_register_order_button()
         
-        assert main_page.get_text_register_order_button() == 'Оформить заказ'
+        assert main_page.get_text_register_order_button() == MainPageSelectors.register_order_button_text
 
 
     

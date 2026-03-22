@@ -9,6 +9,7 @@ class OrderFeedLocators:
     number_order_in_work = [By.XPATH, '//ul[@class= "OrderFeed_orderListReady__1YFem OrderFeed_orderList__cBvyi"]/li[@class="text text_type_digits-default mb-2"]']
     
     
-
+class OrderFeedSelectors:
+    all_time_counter_title_text = "Выполнено за все время:"
 
 
